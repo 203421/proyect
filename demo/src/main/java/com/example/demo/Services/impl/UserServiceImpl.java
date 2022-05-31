@@ -61,5 +61,18 @@ public class UserServiceImpl  implements IUserService {
         return response;
     }
 
+ /*
+    public static void update(SingularAttribute<AbstractPersistable, Serializable> id, Map<String, Object> request){
+        repository.findById(Long.valueOf(id)).orElseThrow(() ->{
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Id no encontrada.");
+        });
+        request.forEach((k,v) -> {
+            Field field = ReflectionUtils.findField(User.class, k);
+            field.setAccessible(true);
+            ReflectionUtils.setField(field, User, v);
+        });
+    }*/
+
+
 
 }

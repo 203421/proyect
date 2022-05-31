@@ -37,4 +37,11 @@ public class UserController {
     public User saveUser(@RequestBody User user){
         return  service.;
     }*/
+
+    /*
+    @PatchMapping("/User/{id}")
+    public String update(PathVariable Integer id, @RequestBody Map<String, Object> request){
+        serv.update(id, User);
+        return "actualizado";
+    }*/
 }
