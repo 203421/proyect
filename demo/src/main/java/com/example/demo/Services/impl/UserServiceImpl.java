@@ -29,8 +29,8 @@ public class UserServiceImpl  implements IUserService {
     }
 
     @Override
-    public Iterable<User> findAll() {
-        return null;
+    public Iterable<User> findAll(){
+        return repository.findAll();
     }
 
     @Override

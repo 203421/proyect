@@ -7,6 +7,7 @@ public interface IUserService {
     UserResponse getUserById(Long id);
 
     Iterable<User> findAll();
+
     Boolean deleteById(Long id);
 
 
