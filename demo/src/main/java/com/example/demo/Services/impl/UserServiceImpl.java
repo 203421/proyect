@@ -7,17 +7,30 @@ import com.example.demo.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
+import java.util.List;
+
 import java.util.Optional;
 
 @Service
-public class UserServiceImpl implements IUserService {
+public class UserServiceImpl  implements IUserService {
+
+
+
     @Autowired
     private UserRepository repository;
+
+
 
     @Override
     public UserResponse getUserById(Long id){
         return from(repository.findById(id)
                 .orElseThrow(() -> new RuntimeException("No existe")));
+    }
+
+    @Override
+    public Iterable<User> findAll() {
+        return null;
     }
 
     @Override
@@ -38,6 +51,9 @@ public class UserServiceImpl implements IUserService {
         UserResponse response = new UserResponse();
         response.setId(user.getId());
         response.setEmail(user.getEmail());
+        response.setUsername(user.getUsername());
+        response.setPhone(user.getPhone());
+        response.setPasswordd(user.getPassword());
         return response;
     }
 

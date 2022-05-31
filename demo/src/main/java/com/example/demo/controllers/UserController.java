@@ -10,12 +10,15 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("user")
 public class UserController {
-
+    @GetMapping("getAll")
+    public Iterable<User> getAll(){
+        return service.findAll();
+    }
     @Autowired
     private IUserService service;
 
     @GetMapping("{id}")
-    public UserResponse holi(@PathVariable Long id) {
+    public UserResponse getById(@PathVariable Long id) {
         return service.getUserById(id);
     }
 
