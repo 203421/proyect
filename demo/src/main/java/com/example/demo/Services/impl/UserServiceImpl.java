@@ -20,6 +20,10 @@ public class UserServiceImpl  implements IUserService {
     @Autowired
     private UserRepository repository;
 
+    /*public User guardarUser(User user){
+        return from(repository.save());
+    }*/
+
 
 
     @Override

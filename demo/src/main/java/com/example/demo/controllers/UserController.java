@@ -32,6 +32,9 @@ public class UserController {
     public Iterable<User> getAll(){
         return service.findAll();
     }
-
-
+   /* @CrossOrigin("*")
+    @PostMapping()
+    public User saveUser(@RequestBody User user){
+        return  service.;
+    }*/
 }
