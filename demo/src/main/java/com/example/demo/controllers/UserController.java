@@ -7,6 +7,7 @@ import com.example.demo.entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+
 @RestController
 @RequestMapping("user")
 public class UserController {
@@ -15,7 +16,7 @@ public class UserController {
     private IUserService service;
 
     @GetMapping("{id}")
-    public UserResponse holi(@PathVariable Long id) {
+    public UserResponse getById(@PathVariable Long id) {
         return service.getUserById(id);
     }
 
@@ -27,5 +28,10 @@ public class UserController {
 
         return true;
     }
+    @GetMapping("getAll")
+    public Iterable<User> getAll(){
+        return service.findAll();
+    }
+
 
 }
