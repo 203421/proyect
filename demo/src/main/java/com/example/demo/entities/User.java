@@ -6,16 +6,15 @@ import javax.persistence.*;
 
 
 @Entity
-@Table(name = "Users")
+@Table(name = "users")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String name;
     private String email;
-    private String password;
-    private String phone;
+    private String passwordd;
+    private String phone_number;
     private String username;
 
     public Long getId() {
@@ -35,19 +34,19 @@ public class User {
     }
 
     public String getPassword() {
-        return password;
+        return passwordd;
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        this.passwordd = passwordd;
     }
 
     public String getPhone() {
-        return phone;
+        return phone_number;
     }
 
     public void setPhone(String phone) {
-        this.phone = phone;
+        this.phone_number = phone_number;
     }
 
     public String getUsername() {
@@ -56,13 +55,5 @@ public class User {
 
     public void setUsername(String username) {
         this.username = username;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 }

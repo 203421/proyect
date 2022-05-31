@@ -3,14 +3,12 @@ package com.example.demo.controllers;
 
 import com.example.demo.DTO.response.UserResponse;
 import com.example.demo.Services.interfaces.IUserService;
+import com.example.demo.entities.User;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("User")
+@RequestMapping("user")
 public class UserController {
 
     @Autowired
@@ -21,6 +19,13 @@ public class UserController {
         return service.getUserById(id);
     }
 
+    @DeleteMapping("/delete/{id}")
+    public boolean deleteById(@PathVariable("id") long id){
+        //UserResponse del = service.getUserById(id);
 
-    //Miller es reputisimo
+         boolean status = service.deleteById(id);
+
+        return true;
+    }
+
 }

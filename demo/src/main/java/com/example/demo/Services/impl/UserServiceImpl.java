@@ -7,6 +7,8 @@ import com.example.demo.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class UserServiceImpl implements IUserService {
     @Autowired
@@ -18,10 +20,26 @@ public class UserServiceImpl implements IUserService {
                 .orElseThrow(() -> new RuntimeException("No existe")));
     }
 
+    @Override
+    public Boolean deleteById(Long id) {
+
+        UserResponse del = getUserById(id);
+        if (del != null){
+            repository.deleteById(id);
+            return true;
+        }
+        else {
+            return false;
+        }
+
+    }
+
     private UserResponse from(User user) {
         UserResponse response = new UserResponse();
         response.setId(user.getId());
         response.setEmail(user.getEmail());
         return response;
     }
+
+
 }
